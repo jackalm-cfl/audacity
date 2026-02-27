@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Audacity Marketing Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f5f6f8;
+  }
+
+  .login-box {
+    width: 320px;
+    margin: 120px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: #111827;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  #dashboard {
+    display: none;
+    padding: 20px;
+  }
+
+  iframe {
+    width: 100%;
+    height: 900px;
+    border: none;
+    border-radius: 8px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="login-box" id="loginBox">
+  <h2>Client Access</h2>
+  <input type="password" id="passwordInput" placeholder="Enter password">
+  <button onclick="checkPassword()">Login</button>
+  <p id="error" style="color:red;"></p>
+</div>
+
+<div id="dashboard">
+  <!-- 🔥 PASTE YOUR LOOKER EMBED LINK BELOW -->
+  <iframe src="https://lookerstudio.google.com/embed/reporting/29314288-96cf-4be0-876d-56cafdb74001/page/X2L9D"></iframe>
+</div>
+
+<script>
+  const correctPassword = "AudacityCFL123"; // ← change this
+
+  function checkPassword() {
+    const entered = document.getElementById("passwordInput").value;
+
+    if (entered === correctPassword) {
+      document.getElementById("loginBox").style.display = "none";
+      document.getElementById("dashboard").style.display = "block";
+    } else {
+      document.getElementById("error").innerText = "Incorrect password";
+    }
+  }
+</script>
+
+</body>
+</html>
